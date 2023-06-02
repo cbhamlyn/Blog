@@ -1,0 +1,37 @@
+﻿@*
+    This is the "Add Category" Page.
+    Here the Admin user can add new categories for the blog posts to use.
+*@
+@* This binds the data Model to the page View *@
+@model Admin.Models.ViewModels.AddCategoryRequest
+@{
+}
+
+@* This Div holds the Categories section. *@
+<div id="categories" class="container text-left">
+    @* This row is for the Categories label. *@
+    <div class="row">
+        <div id="addCategoryPageLabel" class="col-8">
+            <h1>Add Category</h1>
+        </div>
+    </div>
+    @* This form is for adding a new Title to the Category db. *@
+    <form method="post">
+        <div class="row">
+            @* This is the label prompting for the Category Title. *@
+            <div class="col-auto">
+                <label id="addCategoryTitleLabel" for="addCategoryTitleInput" class="col-form-label">Title</label>
+            </div>
+            @* This is the text input to capture the user's Title. *@
+            <div class="col-auto">
+                <input type="text" id="addCategoryTitleInput" asp-for="AddCategoryTitleInput" class="form-control" placeholder="enter category" autofocus />
+            </div>
+        </div>
+        @* This is the Save button. *@
+        <div class="row pt-3">
+            <div id="categoryAddSave">
+                <button id="categoryAddSaveButton" type="submit" class="btn btn-primary align-middle">Save</button>
+            </div>
+        </div>
+    </form>
+</div>

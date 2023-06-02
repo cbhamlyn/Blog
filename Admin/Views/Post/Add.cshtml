@@ -1,0 +1,74 @@
+﻿@*
+    This is the "Add Post" Page.
+    Here the Admin user can add new blog posts.
+*@
+@* This binds the data Model to the page View *@
+@model Admin.Models.ViewModels.AddPostRequest
+
+
+@{
+}
+
+@* This Div holds the Post section. *@
+<div id="posts" class="container text-left">
+    @* This row is for the Post label. *@
+    <div class="row">
+        <div id="addPostPageLabel" class="col-8">
+            <h1>Add Post</h1>
+        </div>
+    </div>
+    @* This form is for adding a new Post to the BlogPost db. *@
+    <form method="post">
+        <div class="row">
+            @* This is the label prompting for the Post Title. *@
+            <div class="col-md-1">
+                <label id="addPostTitleLabel" for="addPostTitleInput" class="col-form-label">Title</label>
+            </div>
+            @* This is the text input to capture the user's Title. *@
+            <div class="col-md-3 offset-md-2">
+                <input type="text" id="addPostTitleInput" asp-for="AddPostTitleInput" class="form-control" placeholder="enter title" autofocus />
+            </div>
+        </div>
+        <br />
+        <div class="row">
+                @* This is the label prompting for the Post Category. *@
+            <div class="col-md-1">
+                <label id="addPostCategoryLabel" for="addPostCategoryInput" class="col-form-label">Category</label>
+            </div>
+            @* This is the text input to capture the user's Category. *@
+            <div class="col-md-3 offset-md-2">
+                <select id="addPostCategoryInput" class="form-select-sm" asp-for="AddPostCategoryInput" asp-items="@Model.CategoriesList"></select>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            @* This is the label prompting for the Post Date. *@
+            <div class="col-md-1">
+                <label id="addPostDateLabel" for="addPostDateInput" class="col-form-label">Date</label>
+            </div>
+            @* This is the text input to capture the user's Date. *@
+            <div class="col-md-3 offset-md-2">
+                <input type="date" id="addPostDateInput" asp-for="AddPostDateInput" class="form-control" value="@DateTime.Today.ToString("yyyy-MM-dd")" />
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            @* This is the label prompting for the Post Content. *@
+            <div class="col-md-1">
+                <label id="addPostContentLabel" for="addPostContentInput" class="col-form-label">Content</label>
+            </div>
+            @* This is the text input to capture the user's Content. *@
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <textarea id="addPostContentInput" asp-for="AddPostContentInput" class=" form-control" rows="3"> </textarea>
+            </div>
+        </div>
+        @* This is the Save button. *@
+        <div class="row pt-3">
+            <div id="postAddSave">
+                <button id="postAddSaveButton" type="submit" class="btn btn-primary align-middle">Save</button>
+            </div>
+        </div>
+    </form>
+</div>

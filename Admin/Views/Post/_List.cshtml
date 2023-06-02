@@ -1,0 +1,39 @@
+﻿@*
+    This is a partial View for the list of Blog Post Titles.
+    Here the Admin user can edit categories for the blog posts to use.
+*@
+@* This binds the data Model to the page View *@
+@model Admin.Models.ViewModels.ListRequest
+@{
+}
+
+@* This Div holds the Categories section. *@
+<div id="posts" class="container text-left">
+    @* This row is for the list of Category Titles *@
+    <div class="row">
+        @if (Model.Posts != null && Model.Posts.Any())
+        {
+            <table class="=" table>
+                <tbody>
+                    @foreach (var post in Model.Posts)
+                    {
+                        <tr>
+                            <td>
+                                <a asp-area="" 
+                                    asp-controller="Post" 
+                                    asp-action="Edit"
+                                    asp-route-id="@post.Id"
+                                    >@post.Title
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p> No blog posts found.</p>
+        }
+    </div>
+</div>

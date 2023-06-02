@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@* This Div holds the Categories section *@
+<div id="Categories" class="container text-left">
+    @* This row is for the Categories label and Add button *@
+    <div class="row">
+        <div id="CategoriesLabel" class="col-8">
+            <h1>Categories</h1>
+        </div>
+        <div id="CategoryAdd" class="col-4 text-center justify-content-end">
+            <br />
+            <a class="btn btn-primary" role="button" asp-area="" asp-controller="Category" asp-action="Add">Add</a>
+        </div>
+    </div>
+    
+    @* This row is for the list of Category Titles *@
+    <div class="offset-1">
+       <partial name="../Category/_List" />
+    </div>
+</div>
+
+<div><br /><br /></div>
+
+@* This Div holds the Posts section *@
+<div id="Posts" class="container text-left">
+    @* This row is for the Posts label and Add button *@
+    <div class="row">
+        <div id="PostLabel" class="col-8">
+            <h1>Posts</h1>
+        </div>
+        <div id="PostAdd" class="col-4 text-center justify-content-end">
+            <br />
+            <a class="btn btn-primary" role="button" asp-area="" asp-controller="Post" asp-action="Add">Add</a>
+        </div>
+    </div>
+
+    @* This row is for the list of Blog Post Titles *@
+    <div class="offset-1">
+        <partial name="../Post/_List" />
+    </div>
+</div>

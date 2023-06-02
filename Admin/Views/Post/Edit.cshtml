@@ -1,0 +1,72 @@
+﻿@*
+    This is the "Edit Post" Page.
+    Here the Admin user can edit Posts.
+*@
+@* This binds the data Model to the page View *@
+@model Admin.Models.ViewModels.EditPostRequest
+@{
+}
+
+@* This Div holds the Post section. *@
+<div id="posts" class="container text-left">
+    @* This row is for the Post label. *@
+    <div class="row">
+        <div id="editPostPageLabel" class="col-8">
+            <h1>Edit Post</h1>
+        </div>
+    </div>
+    @* This form is for editing a new Post to the BlogPost db. *@
+    <form method="post">
+        <div class="row">
+            @* This is the label prompting for the Post Title. *@
+            <div class="col-md-1">
+                <label id="editPostTitleLabel" for="editPostTitleInput" class="col-form-label">Title</label>
+            </div>
+            @* This is the text input to capture the user's Title. *@
+            <div class="col-md-3 offset-md-2">
+                <input type="text" id="editPostTitleInput" asp-for="Title" class="form-control" placeholder="enter title" autofocus />
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            @* This is the label prompting for the Post Category. *@
+            <div class="col-md-1">
+                <label id="editPostCategoryLabel" for="editPostCategoryInput" class="col-form-label">Category</label>
+            </div>
+            @* This is the text input to capture the user's Category. *@
+            <div class="col-md-3 offset-md-2">
+                <select id="editPostCategoryInput" class="form-select-sm" asp-for="CategoryId" asp-items="@Model.CategoriesList"></select>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            @* This is the label prompting for the Post Date. *@
+            <div class="col-md-1">
+                <label id="editPostDateLabel" for="editPostDateInput" class="col-form-label">Date</label>
+            </div>
+            @* This is the text input to capture the user's Date. *@
+            <div class="col-md-3 offset-md-2">
+                <input type="date" id="editPostDateInput" asp-for="PublicationDate" class="form-control" value="@DateTime.Today.ToString("yyyy-MM-dd")" />
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            @* This is the label prompting for the Post Content. *@
+            <div class="col-md-1">
+                <label id="editPostContentLabel" for="editPostContentInput" class="col-form-label">Content</label>
+            </div>
+            @* This is the text input to capture the user's Content. *@
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <textarea id="editPostContentInput" asp-for="Content" class=" form-control" rows="3"> </textarea>
+            </div>
+        </div>
+        @* This is the Save button. *@
+        <div class="row pt-3">
+            <div id="postEditSave">
+                <button id="postEditSaveButton" type="submit" class="btn btn-primary align-middle">Save</button>
+            </div>
+        </div>
+    </form>
+</div>
